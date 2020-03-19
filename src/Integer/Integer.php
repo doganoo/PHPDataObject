@@ -32,4 +32,15 @@ namespace doganoo\DataObject\Integer;
  */
 class Integer {
 
+    /** @var int $value */
+    private $value;
+
+    public function __construct(int $value) {
+        $this->setValue($value);
+    }
+
+    public function setValue(int $value): void {
+        $this->value = $value;
+    }
+
 }
