@@ -1,0 +1,28 @@
+{
+  "name": "doganoo/php-data-object",
+  "description": "Simple and basic object oriented data objects",
+  "type": "library",
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "require": {
+    "doganoo/php-algorithms": "^1.0"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^0.11.16",
+    "phpunit/phpunit": "^7.5",
+    "ergebnis/composer-normalize": "^2.2"
+  },
+  "authors": [
+    {
+      "name": "Dogan Ucar",
+      "email": "dogan@dogan-ucar.de",
+      "homepage": "https://dogan-ucar.de"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "doganoo\\DataObject\\": "src/",
+      "doganoo\\DataObject\\Test\\": "test/"
+    }
+  }
+}
