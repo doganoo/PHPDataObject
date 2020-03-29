@@ -24,38 +24,37 @@ declare(strict_types=1);
  * SOFTWARE.
  */
 
-namespace doganoo\DataObject\Integer;
+namespace doganoo\DataObject\Enum;
 
 use doganoo\DataObject\Core\Common\IDataObject;
+use doganoo\DataObject\Core\Exception\InvalidEnumValueException;
 
-/**
- * Class Integer
- * @package doganoo\DataObject\Integer
- */
-class Integer implements IDataObject {
+abstract class Enum {
 
-    /** @var int $value */
-    private $value;
+    private $object = null;
 
-    public function __construct(int $value) {
-        $this->setValue($value);
+    public function __construct(IDataObject $object) {
+        $this->setObject($object);
     }
 
-    public function setValue(int $value): void {
-        $this->value = $value;
-    }
+    private function isValid(): bool {
 
-    public function getValue(): int {
-        return $this->value;
-    }
-
-    public function equals($value): bool {
-
-        if ($value instanceof Integer) {
-            return $value->getValue() === $value;
+        foreach ($this->getValues() as $value) {
+            if ($this->object->equals($value)) return true;
         }
 
-        return false;
+        throw new InvalidEnumValueException();
     }
+
+    public function getObject(): IDataObject {
+        return $this->object;
+    }
+
+    public function setObject(IDataObject $object): void {
+        $this->object = $object;
+        $this->isValid();
+    }
+
+    abstract function getValues(): array;
 
 }

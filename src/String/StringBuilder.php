@@ -26,10 +26,19 @@ declare(strict_types=1);
 
 namespace doganoo\DataObject\String;
 
+use doganoo\DataObject\Core\Common\IDataObject;
 use doganoo\PHPAlgorithms\Datastructure\Lists\ArrayList\StringBuilder as Base;
 
-class StringBuilder extends Base {
+class StringBuilder extends Base implements IDataObject {
 
     // silence is golden
+
+    public function equals($value): bool {
+
+        if ($value instanceof StringBuilder) {
+            return ((string) $value) === ((string) $this);
+        }
+        return false;
+    }
 
 }

@@ -24,7 +24,7 @@ declare(strict_types=1);
  * SOFTWARE.
  */
 
-namespace doganoo\DataObject\Exception;
+namespace doganoo\DataObject\Core\Exception;
 
 use Exception;
 

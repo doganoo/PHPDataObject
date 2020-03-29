@@ -24,38 +24,8 @@ declare(strict_types=1);
  * SOFTWARE.
  */
 
-namespace doganoo\DataObject\Integer;
+namespace doganoo\DataObject\Core\Common;
 
-use doganoo\DataObject\Core\Common\IDataObject;
-
-/**
- * Class Integer
- * @package doganoo\DataObject\Integer
- */
-class Integer implements IDataObject {
-
-    /** @var int $value */
-    private $value;
-
-    public function __construct(int $value) {
-        $this->setValue($value);
-    }
-
-    public function setValue(int $value): void {
-        $this->value = $value;
-    }
-
-    public function getValue(): int {
-        return $this->value;
-    }
-
-    public function equals($value): bool {
-
-        if ($value instanceof Integer) {
-            return $value->getValue() === $value;
-        }
-
-        return false;
-    }
+interface IDataObject extends IComparable {
 
 }

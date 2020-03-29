@@ -26,11 +26,13 @@ declare(strict_types=1);
 
 namespace doganoo\DataObject\String;
 
+use doganoo\DataObject\Core\Common\IDataObject;
+
 /**
  * Class StringClass
  * @package doganoo\DataObject\String
  */
-class StringClass {
+class StringClass implements IDataObject {
 
     /** @var string $value */
     private $value;
